@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const app = express();
 const PORT = process.env.NODE_DOCKER_PORT;
@@ -19,7 +19,7 @@ function connectToDatabase() {
   db.connect((err) => {
     if (err) {
       console.error('Error connecting to the database, retrying in 5 seconds...', err.message);
-      //setTimeout(connectToDatabase, retryTimeout);
+      setTimeout(connectToDatabase, retryTimeout);
     } else {
       console.log('Connected to the MySQL database!');
     }
