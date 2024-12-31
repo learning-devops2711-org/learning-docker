@@ -31,7 +31,7 @@ connectToDatabase();
 
 // API endpoint
 app.get('/', (req, res) => {
-  res.send('Hello, Node.js with MySQL!');
+  res.send('Hello, Node.js with MySQL! and adding docker');
 });
 
 app.get('/users', (req, res) => {
