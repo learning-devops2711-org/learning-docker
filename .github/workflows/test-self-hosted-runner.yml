@@ -6,7 +6,7 @@ on:
 jobs:
   test-runner:
     name: Run on Self-Hosted Linux
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, Linux]
     steps:
       - name: Print Runner Info
         run: |
