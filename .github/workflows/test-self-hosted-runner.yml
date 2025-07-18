@@ -1,0 +1,32 @@
+name: Test Self-Hosted Linux Runner
+
+on:
+  workflow_dispatch: # allows manual trigger
+
+jobs:
+  test-runner:
+    name: Run on Self-Hosted Linux
+    runs-on: [self-hosted, linux]  # use runner labels
+
+    steps:
+      - name: Print Runner Info
+        run: |
+          echo "Runner name: $RUNNER_NAME"
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner Arch: $RUNNER_ARCH"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Shell Commands
+        run: |
+          echo "Current user: $(whoami)"
+          echo "Uptime:"
+          uptime
+          echo "Disk usage:"
+          df -h
+
+      - name: Print Network Info
+        run: |
+          hostname -I
+          ip a
